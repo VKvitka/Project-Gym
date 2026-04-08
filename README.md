@@ -25,9 +25,9 @@ Sprint 4 | Cel (Kamień milowy): Testowanie i optymalizacja | 07.05.2026
 
 ## Autorzy
 
-* Hanna Kryhina – backend
+* Hanna Kryhina – backend / frontend
 * Evelina Kuroiedova – testowanie / UI
-* Vladyslav Kvitka – frontend
+* Vladyslav Kvitka – backend / frontend
 
 ---
 
@@ -41,8 +41,7 @@ Frontend:
 
 Backend:
 
-* Java
-* Spring Boot
+* Node.js + Express
 
 ---
 
@@ -81,7 +80,7 @@ Backend odpowiada za logikę biznesową oraz komunikację z bazą danych.
    git clone https://github.com/VKvitka/Project-Gym
 
 2. Przejdź do katalogu projektu
-   cd gym-app
+   cd Project-Gym
 
 ---
 
@@ -89,14 +88,9 @@ Backend odpowiada za logikę biznesową oraz komunikację z bazą danych.
 
 ### Backend
 
-cd backend
-mvn spring-boot
+cd Project-Gym\backend
+node server.js
 
-### Frontend
-
-cd frontend
-
-# otwórz plik index.html lub użyj serwera lokalnego
 
 ---
 
@@ -104,7 +98,7 @@ cd frontend
 
 1. Otwórz przeglądarkę
 2. Przejdź na adres:
-   http://localhost:8080
+   http://localhost:3000
 3. Utwórz konto
 4. Zaloguj się
 5. Wybierz trening i zapisz się na niego
@@ -117,7 +111,6 @@ cd frontend
 frontend/ – interfejs użytkownika
 backend/ – logika aplikacji
 docs/ – dokumentacja
-tests/ – testy
 
 ---
 
