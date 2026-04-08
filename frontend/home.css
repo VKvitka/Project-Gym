@@ -1,0 +1,200 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --nav-bg: rgba(240, 244, 244, 0.94);
+    --nav-button: rgba(70, 72, 74, 0.95);
+    --nav-button-active: rgba(189, 189, 189, 0.95);
+    --green: #30ff18;
+    --text: #f0f0f0;
+}
+
+/* Podstawowe ustawienia calej strony glownej. */
+body {
+    min-height: 100vh;
+    font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+    color: var(--text);
+    background: #2f2f2f;
+}
+
+/* Zewnetrzny kontener obejmujacy cala zawartosc strony. */
+.page-shell {
+    min-height: 100vh;
+    background: transparent;
+}
+
+/* Pasek z menu u gory strony. */
+.topbar {
+    padding: 14px 20px;
+    background: var(--nav-bg);
+}
+
+/* Ustawienie przyciskow menu w rownych kolumnach. */
+.menu {
+    display: grid;
+    grid-template-columns: repeat(5, minmax(0, 1fr));
+    gap: 20px;
+    width: 100%;
+}
+
+/* Wspolny wyglad wszystkich przyciskow w menu. */
+.menu-link {
+    width: 100%;
+    padding: 16px 18px;
+    border-radius: 14px;
+    text-decoration: none;
+    text-align: center;
+    font-size: 28px;
+    font-family: Georgia, "Times New Roman", serif;
+    color: #f3f3f3;
+    background: var(--nav-button);
+    box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.12);
+    transition: transform 0.18s ease, background 0.18s ease;
+}
+
+.menu-link:hover {
+    transform: translateY(-1px);
+}
+
+/* Styl aktywnej zakladki w menu. */
+.menu-link.active {
+    background: var(--nav-button-active);
+    color: #1e1e1e;
+}
+
+/* Ustawienie przycisku profilu razem z ikona uzytkownika. */
+.profile-link {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 14px;
+}
+
+.profile-icon {
+    width: 34px;
+    height: 34px;
+    flex-shrink: 0;
+    color: currentColor;
+}
+
+/* Uklad dwoch kolumn: tekst po lewej, grafika po prawej. */
+.content {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) minmax(420px, 0.95fr);
+    gap: 36px;
+    padding: 34px 20px 24px;
+    align-items: center;
+}
+
+/* Naglowek glownej sekcji informacyjnej. */
+.intro h1 {
+    margin-bottom: 30px;
+    color: var(--green);
+    font-size: clamp(28px, 3vw, 52px);
+    font-weight: 800;
+}
+
+/* Lista korzysci i elementow oferty silowni. */
+.benefits {
+    padding-left: 30px;
+    font-size: clamp(17px, 1.45vw, 22px);
+    line-height: 1.35;
+}
+
+/* Akapit opisujacy charakter marki PowerZone. */
+.summary {
+    margin-top: 52px;
+    max-width: 900px;
+    font-size: clamp(17px, 1.4vw, 21px);
+    line-height: 1.32;
+}
+
+.summary .brand {
+    color: var(--green);
+    font-weight: 700;
+}
+
+/* Kontener z grafika promocyjna po prawej stronie. */
+.offer-card {
+    align-self: center;
+    justify-self: center;
+    width: min(100%, 680px);
+    background: rgba(0, 0, 0, 0.55);
+    padding: 14px;
+}
+
+.offer-card img {
+    display: block;
+    width: 100%;
+    height: auto;
+}
+
+/* Sekcja kontaktowa z ikona telefonu i adresem email. */
+.contact {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-top: 48px;
+    color: #6aff4c;
+    font-size: 14px;
+}
+
+.contact-icon {
+    width: 36px;
+    height: 36px;
+    flex-shrink: 0;
+}
+
+.contact-text {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+}
+
+/* Uklad responsywny dla tabletow i mniejszych ekranow. */
+@media (max-width: 1200px) {
+    .menu {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
+
+    .content {
+        grid-template-columns: 1fr;
+    }
+
+    .offer-card {
+        justify-self: start;
+        width: min(100%, 760px);
+    }
+}
+
+/* Uklad mobilny: menu i zawartosc ustawione jeden pod drugim. */
+@media (max-width: 700px) {
+    .topbar {
+        padding: 12px;
+    }
+
+    .menu {
+        grid-template-columns: 1fr;
+        gap: 12px;
+    }
+
+    .menu-link {
+        font-size: 24px;
+    }
+
+    .content {
+        padding: 18px 12px 28px;
+        gap: 22px;
+    }
+
+    .benefits {
+        padding-left: 20px;
+    }
+
+    .summary {
+        margin-top: 28px;
+    }
+}
