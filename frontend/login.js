@@ -28,14 +28,16 @@ loginButton.addEventListener("click", async () => {
             body: JSON.stringify({ email, password })
         });
 
-        const text = await response.text();
+        const data = await response.json().catch(() => null);
+        const message = data?.message || "Nie udalo sie zalogowac";
 
-        // Po poprawnym logowaniu otwiera strone glowna.
+        // Po poprawnym logowaniu zapisuje email uzytkownika i otwiera strone glowna.
         if (response.ok) {
+            localStorage.setItem("currentUserEmail", email);
             alert("Pomyslne logowanie");
             window.location.href = "home.html";
         } else {
-            alert(text);
+            alert(message);
         }
     } catch (error) {
         console.error(error);

@@ -1,0 +1,28 @@
+[
+  {
+    "firstName": "Hanna",
+    "lastName": "Kryhina",
+    "email": "kryhinahanna@gmail.com",
+    "password": "123456789",
+    "gender": "",
+    "dateOfBirth": "",
+    "country": "",
+    "city": "",
+    "postalCode": "",
+    "address": "",
+    "phoneNumber": "67678687687"
+  },
+  {
+    "firstName": "Vladik",
+    "lastName": "Kvitka",
+    "email": "kvitka@gmail.com",
+    "password": "123456789",
+    "gender": "Male",
+    "dateOfBirth": "2005-01-30",
+    "country": "Poland",
+    "city": "Lublin",
+    "postalCode": "20-200",
+    "address": "Zana 1",
+    "phoneNumber": "354567828"
+  }
+]
