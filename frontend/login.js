@@ -34,7 +34,6 @@ loginButton.addEventListener("click", async () => {
         // Po poprawnym logowaniu zapisuje email uzytkownika i otwiera strone glowna.
         if (response.ok) {
             localStorage.setItem("currentUserEmail", email);
-            alert("Pomyslne logowanie");
             window.location.href = "home.html";
         } else {
             alert(message);

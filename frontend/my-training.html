@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My training - PowerZone</title>
+    <link rel="stylesheet" href="home.css">
+    <link rel="stylesheet" href="my-training.css">
+</head>
+<body>
+    <div class="page-shell">
+        <!-- Gorne menu nawigacyjne aplikacji. -->
+        <header class="topbar">
+            <nav class="menu">
+                <a href="home.html" class="menu-link">Main</a>
+                <a href="all-training.html" class="menu-link">All training</a>
+                <a href="my-training.html" class="menu-link active">My training</a>
+                <a href="#" class="menu-link">Timer</a>
+                <a href="profile.html" class="menu-link profile-link">
+                    <span>Profile</span>
+                    <svg class="profile-icon" viewBox="0 0 24 24" aria-hidden="true">
+                        <circle cx="12" cy="8" r="5" fill="currentColor"></circle>
+                        <path d="M4 22c.7-4.4 4.2-7 8-7s7.3 2.6 8 7" fill="currentColor"></path>
+                    </svg>
+                </a>
+            </nav>
+        </header>
+
+        <!-- Glowna zawartosc strony. -->
+        <main class="training-content">
+            <!-- Naglowek strony z kontrolkami miesiąca. -->
+            <div class="calendar-header">
+                <h1 class="page-title">My training</h1>
+                <div class="view-controls">
+                    <button class="view-btn active" data-view="month">Month</button>
+                    <button class="view-btn" data-view="week">Week</button>
+                </div>
+                <div class="month-controls">
+                    <button class="month-nav-btn prev-btn">◀</button>
+                    <span class="current-month" id="currentMonth">April 2026</span>
+                    <button class="month-nav-btn next-btn">▶</button>
+                </div>
+            </div>
+
+            <!-- Kalendarz z treningami. -->
+            <div class="training-calendar">
+                <!-- Naglowek dni tygodnia. -->
+                <div class="calendar-weekdays">
+                    <div class="weekday">Mon</div>
+                    <div class="weekday">Tue</div>
+                    <div class="weekday">Wed</div>
+                    <div class="weekday">Thu</div>
+                    <div class="weekday">Fri</div>
+                    <div class="weekday">Sat</div>
+                    <div class="weekday">Sun</div>
+                </div>
+
+                <!-- Siatka dni miesiąca. -->
+                <div class="calendar-grid" id="calendarGrid">
+                    <!-- Dni będą wstawiane przez JavaScript -->
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <script src="home.js"></script>
+    <script src="my-training.js"></script>
+</body>
+</html>

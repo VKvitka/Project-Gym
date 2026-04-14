@@ -12,7 +12,7 @@
             <nav class="menu">
                 <a href="home.html" class="menu-link">Main</a>
                 <a href="all-training.html" class="menu-link active">All training</a>
-                <a href="#" class="menu-link">My training</a>
+                <a href="my-training.html" class="menu-link">My training</a>
                 <a href="#" class="menu-link">Timer</a>
                 <a href="profile.html" class="menu-link profile-link">
                     <span>Profile</span>
@@ -26,37 +26,55 @@
 
         <main class="training-content">
             <section class="training-grid">
-                <article class="training-card">
+                <article class="training-card" data-training="BikeRoom" data-type="group">
                     <img src="images/bikeroom.png" alt="BikeRoom">
                     <h2>BikeRoom</h2>
                 </article>
 
-                <article class="training-card">
+                <article class="training-card" data-training="CrossFit" data-type="group">
                     <img src="images/crossfit.png" alt="CrossFit">
                     <h2>CrossFit</h2>
                 </article>
 
-                <article class="training-card">
+                <article class="training-card" data-training="Gym" data-type="individual">
                     <img src="images/gym.png" alt="Gym">
                     <h2>Gym</h2>
                 </article>
 
-                <article class="training-card">
+                <article class="training-card" data-training="DanceFit" data-type="group">
                     <img src="images/dance.png" alt="DanceFit">
                     <h2>DanceFit</h2>
                 </article>
 
-                <article class="training-card">
+                <article class="training-card" data-training="Yoga" data-type="group">
                     <img src="images/yoga.png" alt="Yoga">
                     <h2>Yoga</h2>
                 </article>
 
-                <article class="training-card">
+                <article class="training-card" data-training="Stretching" data-type="individual">
                     <img src="images/stretching.png" alt="Stretching">
                     <h2>Stretching</h2>
                 </article>
             </section>
         </main>
+
+        <!-- Modal do wyboru zajęć -->
+        <div class="training-booking-modal" id="trainingBookingModal" style="display: none;">
+            <div class="booking-overlay"></div>
+            <div class="booking-container">
+                <div class="booking-image" id="bookingImage"></div>
+                <div class="booking-content">
+                    <div class="booking-header">
+                        <h2 id="bookingTrainingName"></h2>
+                        <button class="booking-close" id="closeBooking">×</button>
+                    </div>
+                    <div id="bookingError" class="booking-error" style="display: none;"></div>
+                    <div class="booking-body" id="bookingBody">
+                        <!-- Zawartość będzie wstawiana przez JavaScript -->
+                    </div>
+                </div>
+            </div>
+        </div>
 
         <footer class="site-footer">
             <div class="footer-socials">

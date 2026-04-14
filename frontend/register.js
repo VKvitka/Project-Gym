@@ -62,7 +62,6 @@ registerForm.addEventListener("submit", async (event) => {
 
         // Po udanej rejestracji wraca na strone logowania.
         if (response.ok) {
-            alert("Rejestracja zakonczona sukcesem");
             window.location.href = "login.html";
         } else {
             alert(text);

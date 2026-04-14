@@ -1,0 +1,298 @@
+/* Styl dla strony My Training */
+
+/* Główna zawartość strony */
+.training-content {
+    padding: 30px 20px;
+    max-width: 1400px;
+    margin: 0 auto;
+}
+
+/* Nagłówek kalendarza z tytułem i kontrolkami */
+.calendar-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 30px;
+    gap: 20px;
+}
+
+/* Przycisk do przełączania widoku */
+.view-controls {
+    display: flex;
+    gap: 10px;
+    background: #2a2a2a;
+    padding: 8px;
+    border-radius: 8px;
+}
+
+.view-btn {
+    padding: 8px 16px;
+    background: #333;
+    border: none;
+    border-radius: 6px;
+    color: var(--text);
+    font-size: 14px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background 0.2s ease, color 0.2s ease;
+}
+
+.view-btn:hover {
+    background: #444;
+}
+
+.view-btn.active {
+    background: var(--green);
+    color: #1e1e1e;
+}
+
+/* Tytuł strony */
+.page-title {
+    color: var(--green);
+    font-size: 40px;
+    font-weight: 800;
+    text-align: left;
+    margin: 0;
+}
+
+/* Kontrolki nawigacji miesiąca */
+.month-controls {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    background: #2a2a2a;
+    padding: 12px 20px;
+    border-radius: 8px;
+}
+
+.month-nav-btn {
+    width: 40px;
+    height: 40px;
+    background: var(--green);
+    border: none;
+    border-radius: 6px;
+    color: #1e1e1e;
+    font-size: 18px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: transform 0.2s ease, background 0.2s ease;
+}
+
+.month-nav-btn:hover {
+    transform: scale(1.1);
+    background: #28e515;
+}
+
+.current-month {
+    font-size: 18px;
+    font-weight: 600;
+    color: var(--text);
+    min-width: 140px;
+    text-align: center;
+}
+
+/* Kalendarz */
+.training-calendar {
+    background: #1e1e1e;
+    border-radius: 8px;
+    overflow: hidden;
+    padding: 20px;
+}
+
+/* Nagłówek dni tygodnia */
+.calendar-weekdays {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    gap: 10px;
+    margin-bottom: 15px;
+    padding-bottom: 15px;
+    border-bottom: 2px solid #333;
+}
+
+.weekday {
+    text-align: center;
+    font-weight: 600;
+    color: var(--green);
+    font-size: 14px;
+}
+
+/* Siatka dni miesiąca */
+.calendar-grid {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    gap: 10px;
+}
+
+/* Widok tygodniowy */
+.calendar-grid.week-view {
+    grid-template-columns: repeat(7, 1fr);
+}
+
+.training-calendar.hidden {
+    display: none;
+}
+
+.training-calendar.week-mode .calendar-grid {
+    gap: 15px;
+}
+
+.training-calendar.week-mode .calendar-day {
+    min-height: 200px;
+    padding: 15px;
+}
+
+.training-calendar.week-mode .day-number {
+    font-size: 18px;
+    margin-bottom: 10px;
+}
+
+/* Pojedyncze pole dnia */
+.calendar-day {
+    background: #2a2a2a;
+    border: 1px solid #333;
+    border-radius: 6px;
+    padding: 12px;
+    min-height: 100px;
+    cursor: pointer;
+    transition: background 0.2s ease, transform 0.2s ease, border-color 0.2s ease;
+}
+
+.calendar-day:hover {
+    background: #333;
+    border-color: var(--green);
+    transform: translateY(-2px);
+}
+
+/* Liczba dnia */
+.day-number {
+    font-size: 16px;
+    font-weight: 600;
+    color: var(--text);
+    margin-bottom: 8px;
+}
+
+/* Dni z innego miesiąca */
+.calendar-day.other-month {
+    background: #1a1a1a;
+    opacity: 0.4;
+    cursor: default;
+}
+
+.calendar-day.other-month:hover {
+    background: #1a1a1a;
+    border-color: #333;
+    transform: none;
+}
+
+/* Dzisiaj */
+.calendar-day.today {
+    background: rgba(48, 255, 24, 0.1);
+    border-color: var(--green);
+}
+
+.calendar-day.today .day-number {
+    color: var(--green);
+    font-weight: bold;
+}
+
+/* Panel do wyboru treningu i czasu */
+/* Przyciski usuwania treningów */
+.remove-training-btn {
+    opacity: 0.6;
+    transition: opacity 0.2s ease, transform 0.2s ease;
+}
+
+.remove-training-btn:hover {
+    opacity: 1;
+    transform: scale(1.2);
+}
+
+/* Responsive */
+@media (max-width: 1200px) {
+    .calendar-header {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .month-controls {
+        width: 100%;
+        justify-content: space-between;
+    }
+
+    .view-controls {
+        width: 100%;
+        justify-content: flex-start;
+    }
+
+    .calendar-day {
+        min-height: 80px;
+        padding: 10px;
+    }
+
+    .training-calendar.week-mode .calendar-day {
+        min-height: 150px;
+    }
+}
+
+@media (max-width: 768px) {
+    .page-title {
+        font-size: 28px;
+    }
+
+    .training-content {
+        padding: 20px 15px;
+    }
+
+    .calendar-grid {
+        gap: 8px;
+    }
+
+    .calendar-day {
+        min-height: 70px;
+        padding: 8px;
+    }
+
+    .day-number {
+        font-size: 14px;
+    }
+
+    .calendar-weekdays {
+        gap: 8px;
+        margin-bottom: 10px;
+        padding-bottom: 10px;
+    }
+
+    .weekday {
+        font-size: 12px;
+    }
+}
+
+@media (max-width: 480px) {
+    .calendar-header {
+        gap: 10px;
+    }
+
+    .page-title {
+        font-size: 22px;
+    }
+
+    .current-month {
+        font-size: 14px;
+        min-width: 100px;
+    }
+
+    .month-nav-btn {
+        width: 35px;
+        height: 35px;
+        font-size: 16px;
+    }
+
+    .calendar-day {
+        min-height: 60px;
+        padding: 6px;
+    }
+
+    .day-number {
+        font-size: 12px;
+    }
+}
