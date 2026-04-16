@@ -84,7 +84,12 @@ Backend odpowiada za logikę biznesową oraz komunikację z bazą danych.
 
 ---
 
-## Uruchomienie aplikacji
+##  Design (Figma)
+
+Projekt UI jest dostępny w Figma:
+https://www.figma.com/proto/1kIRCY3VyRmS96xGtXEPpH/Untitled?node-id=2012-542&t=Ozb12o0r7Ml4MLfQ-1
+
+---
 
 ### Backend
 
