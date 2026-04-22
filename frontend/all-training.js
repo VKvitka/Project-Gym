@@ -29,7 +29,12 @@ const trainingImages = {
 // Konfiguracja zajęć grupowych
 const GROUP_TRAINING_CONFIG = {
     days: [1, 3, 5], // PN, ŚR, PT (0 = niedziela)
-    times: ["09:00", "17:00"]
+    trainingTimes: {
+        "BikeRoom": ["09:00", "16:40"],
+        "CrossFit": ["10:40", "18:20"],
+        "DanceFit": ["12:20", "20:00"],
+        "Yoga": ["15:00", "21:40"]
+    }
 };
 
 // Przechowaj dane bieżącego treningu
@@ -204,6 +209,9 @@ function generateGroupTrainingDays() {
     const today = new Date();
     const dayColumns = document.querySelectorAll(".day-column");
     
+    // Pobierz godziny dla tego konkretnego treningu
+    const trainingTimes = GROUP_TRAINING_CONFIG.trainingTimes[currentBookingTraining.name];
+    
     dayColumns.forEach(column => {
         const dayOfWeek = parseInt(column.querySelector(".day-times").dataset.day);
         const dayTimesContainer = column.querySelector(".day-times");
@@ -212,16 +220,16 @@ function generateGroupTrainingDays() {
         // Znajdź następną datę dla tego dnia tygodnia
         const nextDate = getNextDateForDay(today, dayOfWeek);
         
-        // Dodaj przyciski dla dwóch godzin
-        GROUP_TRAINING_CONFIG.times.forEach(time => {
+        // Dodaj przyciski dla obu godzin tego treningu
+        trainingTimes.forEach(trainingTime => {
             const button = document.createElement("button");
             button.type = "button";
             button.className = "day-time-button";
-            button.dataset.time = time;
+            button.dataset.time = trainingTime;
             button.dataset.date = nextDate.toISOString().split('T')[0];
             
-            const endTime = getEndTime(time);
-            button.textContent = `${time} - ${endTime}`;
+            const endTime = getEndTime(trainingTime);
+            button.textContent = `${trainingTime} - ${endTime}`;
             
             button.addEventListener("click", (e) => {
                 e.preventDefault();
@@ -290,23 +298,29 @@ function getEndTime(startTime) {
 
 // Zatwierdź rezerwację
 function submitBooking(trainingType) {
-    let selectedDate, selectedTime;
+    let selectedDate, selectedTime, selectedMode;
     
-    // Sprawdź czy wybrano zajęcia grupowe
+    // Sprawdź co zostało wybrane
     const selectedButton = document.querySelector(".day-time-button.active");
+    const individualDate = document.getElementById("individualDate").value;
+    const individualTime = document.getElementById("individualTime").value;
     
-    if (selectedButton) {
-        // Jeśli wybrano zajęcia grupowe, użyj tych danych
+    // Sprawdzić czy wybrano COKOLWIEK
+    if (!selectedButton && (!individualDate || !individualTime)) {
+        showBookingError("Please select a training (group or individual)");
+        return;
+    }
+    
+    // Priorytet: jeśli wypełniono indywidualne, użyj ich
+    if (individualDate && individualTime) {
+        selectedDate = individualDate;
+        selectedTime = individualTime;
+        selectedMode = "individual";
+    } else if (selectedButton) {
+        // W przeciwnym razie użyj grupowych
         selectedDate = selectedButton.dataset.date;
         selectedTime = selectedButton.dataset.time;
-    } else if (trainingType === "group") {
-        // Dla zajęć grupowych - przycisk musi być wybrany
-        showBookingError("Please select a group training time");
-        return;
-    } else {
-        // Dla indywidualnych - pobierz z pól formularza
-        selectedDate = document.getElementById("individualDate").value;
-        selectedTime = document.getElementById("individualTime").value;
+        selectedMode = "group";
     }
     
     // Walidacja
@@ -334,7 +348,7 @@ function submitBooking(trainingType) {
     const booking = {
         name: currentBookingTraining.name,
         time: selectedTime,
-        mode: currentBookingTraining.type
+        mode: selectedMode
     };
     
     // Pobierz poprzednie rezerwacje lub utwórz nowy obiekt

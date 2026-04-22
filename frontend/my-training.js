@@ -1,9 +1,15 @@
 // JavaScript dla strony My Training - Kalendarz miesiąca i widok tygodniowy
 
-let currentDate = new Date(2026, 3, 12); // 12 kwietnia 2026
+let currentDate = new Date(); // Bieżąca data
 let currentView = "month"; // "month" lub "week"
-let currentTrainingMode = "group"; // "group" lub "individual"
-let userTrainings = JSON.parse(localStorage.getItem("userTrainings")) || {}; // Przechowuj treningi jako {data: {godzina, nazwa}}
+let userTrainings = (() => {
+    try {
+        return JSON.parse(localStorage.getItem("userTrainings")) || {};
+    } catch (e) {
+        console.error("Błąd parsowania userTrainings:", e);
+        return {};
+    }
+})(); // Przechowuj treningi jako {data: {godzina, nazwa}}
 
 // Konfiguracja zajęć grupowych
 const GROUP_TRAINING_CONFIG = {
@@ -20,19 +26,6 @@ const trainingImages = {
     "Yoga": "images/yoga.png",
     "Stretching": "images/stretching.png"
 };
-
-// Funkcja do obliczenia czasu zakończenia treningu
-function getEndTime(startTime) {
-    const [hours, minutes] = startTime.split(":").map(Number);
-    const endHours = hours + 1;
-    const endMinutes = minutes + 30;
-    
-    if (endMinutes >= 60) {
-        return String(endHours + 1).padStart(2, '0') + ":30";
-    } else {
-        return String(endHours).padStart(2, '0') + ":30";
-    }
-}
 
 // Funkcja do generowania kalendarza miesiąca
 function generateCalendar() {
@@ -281,6 +274,20 @@ document.querySelector(".next-btn").addEventListener("click", () => {
         generateWeekView();
     }
 });
+
+// Obsługa przycisku "Dzisiaj"
+const todayBtn = document.querySelector(".today-btn");
+if (todayBtn) {
+    todayBtn.addEventListener("click", () => {
+        currentDate = new Date();
+        if (currentView === "month") {
+            generateCalendar();
+        } else {
+            generateWeekView();
+        }
+    });
+}
+
 // Funkcja do usuwania treningu
 function removeTraining(date, index) {
     if (userTrainings[date]) {
