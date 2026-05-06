@@ -4,7 +4,7 @@
   "description": "",
   "main": "server.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "test": "node --check server.js && node --check ../frontend/login.js && node --check ../frontend/register.js && node --check ../frontend/profile.js && node --check ../frontend/home.js && node --check ../frontend/all-training.js && node --check ../frontend/my-training.js && node --check ../frontend/timer.js",
     "start": "node server.js"
   },
   "keywords": [],
