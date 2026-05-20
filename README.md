@@ -16,10 +16,10 @@ Aplikacja rozwiązuje problem organizacji treningów oraz ułatwia dostęp do in
 
 ## Sprint plan
 
-Sprint 1 | Cel (Kamień milowy): Prototyp aplikacji + logowanie/rejestracja | 26.03.2026
-Sprint 2 | Cel (Kamień milowy): Strona główna + moduł treningów | 09.04.2026
-Sprint 3 | Cel (Kamień milowy): Integracja frontend + backend | 23.04.2026
-Sprint 4 | Cel (Kamień milowy): Testowanie i optymalizacja | 07.05.2026
+Sprint 1 | Cel (Milestone 1 – Konfiguracja Projektu): Prototyp aplikacji + logowanie/rejestracja | 26.03.2026  
+Sprint 2 | Cel (Milestone 2 – Implementacja Głównych Modułów): Strona główna + moduł treningów | 09.04.2026  
+Sprint 3 | Cel (Milestone 3 – Integracja Frontendu i Backendu): Integracja frontend + backend | 23.04.2026  
+Sprint 4 | Cel (Milestone 4 – Zakończenie Projektu): Testowanie i optymalizacja | 07.05.2026  
 
 ---
 
