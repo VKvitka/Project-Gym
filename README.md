@@ -74,13 +74,39 @@ Backend odpowiada za logikę biznesową oraz komunikację z bazą danych.
 
 ---
 
-## Instalacja
+#  Uruchomienie aplikacji
+
+##  Wymagania
+
+Upewnij się, że na komputerze są zainstalowane:
+
+- [Node.js](https://nodejs.org/)
+- npm
+
+
+## Instalacja i uruchomienie
 
 1. Sklonuj repozytorium
-   git clone https://github.com/VKvitka/Project-Gym
+git clone https://github.com/VKvitka/Project-Gym.git
 
 2. Przejdź do katalogu projektu
-   cd Project-Gym
+cd Project-Gym
+
+3. Przejdź do folderu backend
+cd backend
+
+4. Zainstaluj zależności
+npm install
+
+5. Uruchom serwer
+node server.js
+
+
+## Uruchom aplikację w przeglądarce
+
+Po uruchomieniu serwera otwórz w przeglądarce:
+
+http://localhost:3000
 
 ---
 
@@ -88,14 +114,6 @@ Backend odpowiada za logikę biznesową oraz komunikację z bazą danych.
 
 Projekt UI jest dostępny w Figma:
 https://www.figma.com/proto/1kIRCY3VyRmS96xGtXEPpH/Untitled?node-id=2012-542&t=Ozb12o0r7Ml4MLfQ-1
-
----
-
-### Backend
-
-cd Project-Gym\backend
-node server.js
-
 
 ---
 
@@ -131,13 +149,20 @@ DELETE /api/trainings/enroll/{id}
 
 ## Zrzuty ekranu
 
-\
+![Strona logowania](Screenshots/Logowanie.png)
+![Strona rejestracji](Screenshots/Rejestracja.png)
+![Strona główna](Screenshots/Main.png)
+![Strona wszystkie treningy](Screenshots/All-training.png)
+![Strona moje treningi](Screenshots/My-training.png)
+![Strona tajmera](Screenshots/Timer.png)
+![Strona stopera](Screenshots/Stopwatch.png)
+![Strona użytkownika](Screenshots/Profile.png)
 
 ---
 
 ## Status projektu
 
-Projekt w trakcie rozwoju.
+Zakończony.
 
 ---
 

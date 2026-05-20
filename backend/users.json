@@ -24,5 +24,18 @@
     "postalCode": "20-200",
     "address": "Zana 1",
     "phoneNumber": "354567828"
+  },
+  {
+    "firstName": "Kuroiedova",
+    "lastName": "Evelina",
+    "email": "kuroedovaevelina@gmail.com",
+    "password": "powerzone",
+    "gender": "",
+    "dateOfBirth": "",
+    "country": "",
+    "city": "",
+    "postalCode": "",
+    "address": "",
+    "phoneNumber": ""
   }
 ]
