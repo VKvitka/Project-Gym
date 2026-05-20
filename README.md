@@ -139,23 +139,30 @@ docs/ – dokumentacja
 
 ## API
 
-POST /api/register
-POST /api/login
-GET /api/trainings
-POST /api/trainings/enroll
-DELETE /api/trainings/enroll/{id}
+POST /api/register  
+POST /api/login  
+GET /api/trainings  
+POST /api/trainings/enroll  
+DELETE /api/trainings/enroll/{id}  
 
 ---
 
 ## Zrzuty ekranu
-
+Strona logowania
 ![Strona logowania](Screenshots/Logowanie.png)
+Strona rejestracji
 ![Strona rejestracji](Screenshots/Rejestracja.png)
+Strona główna
 ![Strona główna](Screenshots/Main.png)
+Strona wszystkie treningy
 ![Strona wszystkie treningy](Screenshots/All-training.png)
+Strona moje treningi
 ![Strona moje treningi](Screenshots/My-training.png)
+Strona tajmera
 ![Strona tajmera](Screenshots/Timer.png)
+Strona stopera
 ![Strona stopera](Screenshots/Stopwatch.png)
+Strona użytkownika
 ![Strona użytkownika](Screenshots/Profile.png)
 
 ---
